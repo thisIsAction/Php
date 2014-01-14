@@ -9,6 +9,15 @@
  	
  }
  
- 
+ function checkStatus($status){
+ 	if( empty($status) ) return false;
+ 	
+ 	$allStatus = array(
+ 		'ready' => true,
+ 		'finish' => true,
+ 	);
+ 	
+ 	return isset($allStatus) && $allStatus[$status];
+ }
  
 ?>

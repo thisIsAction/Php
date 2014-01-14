@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50611
 File Encoding         : 65001
 
-Date: 2014-01-14 17:34:05
+Date: 2014-01-14 21:52:38
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -43,13 +43,16 @@ CREATE TABLE `space` (
   `devid_1` varchar(100) DEFAULT NULL,
   `devid_2` varchar(100) DEFAULT NULL,
   `status` varchar(50) NOT NULL DEFAULT 'wait',
+  `status_1` varchar(20) DEFAULT '0',
+  `status_2` varchar(20) DEFAULT '0',
+  `subject_id` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of space
 -- ----------------------------
-INSERT INTO `space` VALUES ('5', null, '123', '12354', 'wait');
+INSERT INTO `space` VALUES ('15', null, '0000', '1111', 'wait', 'ready', 'ready', '0');
 
 -- ----------------------------
 -- Event structure for autoDelete

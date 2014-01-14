@@ -21,11 +21,11 @@
  
  if( $group->isFull() )
  {
- 	echo 'Start game';
+ 	echo 'Ready game';
  }
  else
  {
- 	echo 'wait other';
+ 	echo 'Wait other';
  }
  
 ?>
