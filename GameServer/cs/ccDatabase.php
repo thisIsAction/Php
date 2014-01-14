@@ -124,5 +124,20 @@ class ccDatabase {
 	public static function getLastSql(){
 		echo self::$sql;
 	}
+	
+	public function command($sql){
+		self::$sql = $sql;
+		$result = mysql_query(self::$sql);
+		$resuleRow = array();
+		$i = 0;
+		while($row=mysql_fetch_assoc($result)){
+			foreach($row as $k=>$v){
+				$resuleRow[$i][$k] = $v;
+			}
+			$i++;
+		}
+		return $resuleRow;
+	}
+	
 }
 ?>

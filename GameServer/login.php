@@ -6,14 +6,9 @@
  * Window - Preferences - PHPeclipse - PHP - Code Templates
  */
 
-$fid = @$_POST["devid"];
-if( !isset($fid)  ){
-	echo "Error:Null name";
-	exit();
-}
-
-require_once("Player.php");
-
+require_once('cs/devid.php');
+require_once("cs/Player.php");
+$fid = GetDeviceID();
 $player = new Player($fid);
 
 $player->begin();

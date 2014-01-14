@@ -7,18 +7,16 @@
  */
  
  
+ require_once('ccDatabase.php');
 
 function findDeviceID($id ){
-	if($id == "123")
+	$db = ccDatabase::instance();
+	$resuleRow = $db->select('device',array("devid" => "$id"));
+	if( !empty($resuleRow) )
 		return true;
 	else
 		return false;
 }
-
-function getStatus(){
-	return "Not login";
-}
- 
  
  class Player
  {
@@ -31,12 +29,13 @@ function getStatus(){
  	public function begin(){
  		if( findDeviceID($this->playerID) )
  		{
- 			echo "Already login";	
+ 			ccDatabase::instance()->update('device', array('status'=>'login_begin') ,array("devid" => "$this->playerID"));
+ 			echo "Already login";
  		}else{
+ 			ccDatabase::instance()->insert('device', array('status'=>'login_begin',"devid" => "$this->playerID"));
  			echo "Login scuess";
  		}
  	}
- 	
  	
  	
  };
